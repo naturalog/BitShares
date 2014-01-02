@@ -24,7 +24,7 @@ The block header contains:
 * `version`: software version.
 * `prev`: the id of the previous block on the chain.
 * `block_num`: the sequential id of the block on the chain (?).
-* `timestamp`: creation time of block up to resolution of seconds, doesn't have to be accurate.
+* `timestamp`: creation time of block up to resolution of seconds, does not have to be accurate.
 * `total shares`: total BitShares transacted onthe block.
 * `total_coindays_destroyed`: a measure of volume. Taking the transactions volume multiplied by the number of days since the last trasactions regarding its inputs.
 * transaction Merkle root: required for light client validation (?)
