@@ -29,15 +29,17 @@ The block header contains:
 * `total_coindays_destroyed`: a measure of volume. Taking the transactions volume multiplied by the number of days since the last trasactions regarding its inputs.
 * transaction Merkle root: required for light client validation (?)
 
+the `block_proof` is a `block header`, with additional field representing the proof of work in terms of Merkle brance + nonce.
+
+A `block` contains the `block_proof` information (so it automatically contains a `block header`), together with a `block state` structure. On BitShares, since we do not want our blockchain to grow to huge dimensions, any pending transaction will cost 5% dividend after 1 year unless the user has ran their client once.
+
+A `full block` is a block together with a list of all included transactions.
+
 Transactions
 
 A transaction is built up of:
-
-    trx_input[]: an array of inputs which are unspent outputs (addresses that are not marked as spent) in which the transaction withdraws assets from.
-
-        The transaction should be signed using the private keys of those addresses.
-
-    trx_output[]: an array of transaction’s outputs, which is basically the recipient address with or without one original address for the change if any.
+* inputs: an array of inputs which are unspent outputs (addresses that are not marked as spent) in which the transaction withdraws assets from. The transaction should be signed using the private keys of those addresses.
+* outputs: an array of transaction’s outputs, which is basically the recipient address with or without one original address for the change if any.
 
 Claims
 
